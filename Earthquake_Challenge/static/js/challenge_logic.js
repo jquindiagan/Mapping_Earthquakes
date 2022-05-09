@@ -147,17 +147,14 @@ legend.onAdd = function() {
   d3.json(tplink, function(data) {
     function styleInfo(feature) {
       return {
-        opacity: 0.7,
-        color: "green",
+        color: "#008000",
         weight: 1
       };
     }
 
+    L.geoJSON(data, {
+      style: styleInfo
+    }).addTo(tectonicPlates);
   })
-});
-
-L.geoJSON(data, {
-  style: styleInfo
-}).addTo(tectonicPlates);
-
-tectonicPlates.addTo(map);
+  tectonicPlates.addTo(map);
+  });
